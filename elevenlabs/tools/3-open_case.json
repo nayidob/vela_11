@@ -1,0 +1,119 @@
+{
+  "type": "webhook",
+  "name": "open_case",
+  "description": "Open or update the case once you know name, location and main complaint.",
+  "api_schema": {
+    "url": "https://vela-night-care.vercel.app/api/tools/open-case",
+    "method": "POST",
+    "path_params_schema": [],
+    "query_params_schema": [],
+    "request_body_schema": {
+      "id": "body",
+      "type": "object",
+      "description": "Details for open_case",
+      "required": true,
+      "properties": [
+        {
+          "id": "conversation_id",
+          "type": "string",
+          "description": "",
+          "dynamic_variable": "system__conversation_id",
+          "constant_value": "",
+          "value_type": "dynamic_variable",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "channel",
+          "type": "string",
+          "description": "",
+          "dynamic_variable": "channel",
+          "constant_value": "",
+          "value_type": "dynamic_variable",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "patient_name",
+          "type": "string",
+          "description": "The caller's full name",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "neighborhood",
+          "type": "string",
+          "description": "Neighborhood where the caller is staying, e.g. El Poblado",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "city",
+          "type": "string",
+          "description": "City, usually Medellín",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "chief_complaint",
+          "type": "string",
+          "description": "The main problem in a few words",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "patient_email",
+          "type": "string",
+          "description": "Email for the visit confirmation, or unknown",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "is_alone",
+          "type": "boolean",
+          "description": "True if the caller is alone where they are staying",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        }
+      ],
+      "value_type": "llm_prompt"
+    },
+    "request_headers": [],
+    "content_type": "application/json",
+    "auth_connection": null,
+    "mtls_auth_connection": null,
+    "response_filter": null
+  },
+  "response_timeout_secs": 20,
+  "follow_redirects": false,
+  "follow_redirects_allowed_domains": [],
+  "dynamic_variables": {
+    "dynamic_variable_placeholders": {}
+  },
+  "assignments": [],
+  "interruption_mode": "allow",
+  "pre_tool_speech": "auto",
+  "tool_call_sound": null,
+  "tool_call_sound_behavior": "auto",
+  "execution_mode": "immediate",
+  "tool_error_handling_mode": "auto",
+  "response_mocks": []
+}

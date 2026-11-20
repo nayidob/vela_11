@@ -1,0 +1,89 @@
+{
+  "type": "webhook",
+  "name": "dispatch_doctor",
+  "description": "Dispatch the nearest on-call doctor. Sends the doctor's Spanish briefing and the patient's email.",
+  "api_schema": {
+    "url": "https://vela-night-care.vercel.app/api/tools/dispatch-doctor",
+    "method": "POST",
+    "path_params_schema": [],
+    "query_params_schema": [],
+    "request_body_schema": {
+      "id": "body",
+      "type": "object",
+      "description": "Details for dispatch_doctor",
+      "required": true,
+      "properties": [
+        {
+          "id": "conversation_id",
+          "type": "string",
+          "description": "",
+          "dynamic_variable": "system__conversation_id",
+          "constant_value": "",
+          "value_type": "dynamic_variable",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "channel",
+          "type": "string",
+          "description": "",
+          "dynamic_variable": "channel",
+          "constant_value": "",
+          "value_type": "dynamic_variable",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "symptoms_summary_en",
+          "type": "string",
+          "description": "One-paragraph English summary of the case for the record",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": true,
+          "enum": null
+        },
+        {
+          "id": "briefing_es",
+          "type": "string",
+          "description": "1 to 3 sentences in clinical Spanish for the doctor",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": true,
+          "enum": null
+        },
+        {
+          "id": "patient_email",
+          "type": "string",
+          "description": "Email for the visit confirmation, if the caller gave one",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        }
+      ],
+      "value_type": "llm_prompt"
+    },
+    "request_headers": [],
+    "content_type": "application/json",
+    "auth_connection": null,
+    "mtls_auth_connection": null,
+    "response_filter": null
+  },
+  "response_timeout_secs": 30,
+  "follow_redirects": false,
+  "follow_redirects_allowed_domains": [],
+  "dynamic_variables": {
+    "dynamic_variable_placeholders": {}
+  },
+  "assignments": [],
+  "interruption_mode": "allow",
+  "pre_tool_speech": "auto",
+  "tool_call_sound": null,
+  "tool_call_sound_behavior": "auto",
+  "execution_mode": "immediate",
+  "tool_error_handling_mode": "auto",
+  "response_mocks": []
+}

@@ -1,0 +1,164 @@
+{
+  "type": "webhook",
+  "name": "assess_triage",
+  "description": "Submit your triage. Safety rules may raise the level. Always use final_level from the result.",
+  "api_schema": {
+    "url": "https://vela-night-care.vercel.app/api/tools/assess-triage",
+    "method": "POST",
+    "path_params_schema": [],
+    "query_params_schema": [],
+    "request_body_schema": {
+      "id": "body",
+      "type": "object",
+      "description": "Details for assess_triage",
+      "required": true,
+      "properties": [
+        {
+          "id": "conversation_id",
+          "type": "string",
+          "description": "",
+          "dynamic_variable": "system__conversation_id",
+          "constant_value": "",
+          "value_type": "dynamic_variable",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "channel",
+          "type": "string",
+          "description": "",
+          "dynamic_variable": "channel",
+          "constant_value": "",
+          "value_type": "dynamic_variable",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "level",
+          "type": "string",
+          "description": "Your proposed triage level",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": true,
+          "enum": [
+            "EMERGENCY",
+            "URGENT",
+            "STANDARD",
+            "SELF_CARE"
+          ]
+        },
+        {
+          "id": "chief_complaint",
+          "type": "string",
+          "description": "The main problem in a few words",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "symptoms_summary",
+          "type": "string",
+          "description": "Short summary of all symptoms reported",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "red_flags",
+          "type": "string",
+          "description": "Red flags reported, comma-separated, or none",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "temperature_c",
+          "type": "number",
+          "description": "Temperature in °C, if known",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "pain_score",
+          "type": "number",
+          "description": "Pain from 0 to 10, if known",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "hours_since_onset",
+          "type": "number",
+          "description": "Hours since symptoms started, if known",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "hours_unable_to_keep_fluids",
+          "type": "number",
+          "description": "Hours unable to keep fluids down, if any",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "age",
+          "type": "number",
+          "description": "Caller's age, if known",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        },
+        {
+          "id": "pregnant",
+          "type": "boolean",
+          "description": "True if the caller is pregnant",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "value_type": "llm_prompt",
+          "required": false,
+          "enum": null
+        }
+      ],
+      "value_type": "llm_prompt"
+    },
+    "request_headers": [],
+    "content_type": "application/json",
+    "auth_connection": null,
+    "mtls_auth_connection": null,
+    "response_filter": null
+  },
+  "response_timeout_secs": 20,
+  "follow_redirects": false,
+  "follow_redirects_allowed_domains": [],
+  "dynamic_variables": {
+    "dynamic_variable_placeholders": {}
+  },
+  "assignments": [],
+  "interruption_mode": "allow",
+  "pre_tool_speech": "auto",
+  "tool_call_sound": null,
+  "tool_call_sound_behavior": "auto",
+  "execution_mode": "immediate",
+  "tool_error_handling_mode": "auto",
+  "response_mocks": []
+}
